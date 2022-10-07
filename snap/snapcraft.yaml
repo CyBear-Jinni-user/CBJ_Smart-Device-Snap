@@ -64,13 +64,13 @@ parts:
     source: https://github.com/CyBear-Jinni/cbj_smart-device.git
     plugin: dump
     override-build: |
-      scripts/bashScripts/nativeExecutableMaker.sh  # Downloading dart-sdk for the correct architecture.
+      ../scripts/bashScripts/nativeExecutableMaker.sh  # Downloading dart-sdk for the correct architecture.
 
       rm -r cbj_smart-device
 
-      cd scripts/bashScripts/
+      cd ../scripts/bashScripts/
       ./compileAllCFiles.sh # Have to be executed when working directory is this file location
-      cd ../..
+      cd ../../cbj_smart-device
 
       snapcraftctl build
 
