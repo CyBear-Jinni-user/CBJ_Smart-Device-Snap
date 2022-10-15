@@ -12,7 +12,8 @@ dart-sdk/bin/dart run build_runner build --delete-conflicting-outputs
 
 
 #chmod -R +rx dart-sdk/
-dart-sdk/bin/dart2native cbj_smart-device/bin/main.dart -o Cbj-Smart-Device
+dart-sdk/bin/dart compile exe bin/main.dart -o Cbj-Smart-Device
+#dart-sdk/bin/dart2native bin/main.dart -o Cbj-Smart-Device
 # sudo dart-sdk/bin/dart cbj_smart-device/bin/main.dart .
 
-rm -r dart-sdk/
+#rm -r dart-sdk/
