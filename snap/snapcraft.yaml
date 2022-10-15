@@ -59,18 +59,25 @@ parts:
       - git
       - make
 
-  cbj-smart-device:
+  scripts-files:
     after: [wiring-np]
+    source: .
+    plugin: dump
+    override-build: |
+      rm README.md
+
+  cbj-smart-device:
+    after: [scripts-files]
     source: https://github.com/CyBear-Jinni/cbj_smart-device.git
     plugin: dump
     override-build: |
-      ../scripts/bashScripts/nativeExecutableMaker.sh  # Downloading dart-sdk for the correct architecture.
 
-      rm -r cbj_smart-device
+      mv ../../scripts-files/src/scripts .
+      scripts/bashScripts/nativeExecutableMaker.sh  # Downloading dart-sdk for the correct architecture.
 
-      cd ../scripts/bashScripts/
+      cd scripts/bashScripts/
       ./compileAllCFiles.sh # Have to be executed when working directory is this file location
-      cd ../../cbj_smart-device
+      cd ../../
 
       snapcraftctl build
 
