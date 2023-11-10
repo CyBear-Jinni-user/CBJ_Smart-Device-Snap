@@ -68,7 +68,7 @@ parts:
 
   cbj-smart-device:
     after: [scripts-files]
-    source: https://github.com/CyBear-Jinni/cbj_smart-device.git
+    source: https://github.com/CyBear-Jinni/cbj_smart_device.git
     plugin: dump
     override-build: |
 
